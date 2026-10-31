@@ -1,0 +1,327 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #7565df;
+    --primary-dark: #5c4bc5;
+    --background: #f5f4fb;
+    --surface: #ffffff;
+    --text: #29263d;
+    --muted: #858198;
+    --border: #e9e6f2;
+    --success: #238b68;
+    --danger: #d64d64;
+    --shadow: 0 12px 35px rgba(53, 43, 105, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(circle at 10% 5%, #e9e4ff 0, transparent 30%),
+        radial-gradient(circle at 90% 20%, #f1e8ff 0, transparent 25%),
+        var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+/* Шапка */
+
+.header {
+    padding: 65px 0 45px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 10px;
+    background: linear-gradient(120deg, #6252c8, #a18be9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* Основные секции */
+
+.upload-section,
+.results-section,
+.histograms-section {
+    background: var(--surface);
+    border: 1px solid rgba(230, 225, 245, 0.9);
+    border-radius: 22px;
+    padding: 32px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Форма */
+
+.form-group {
+    margin-bottom: 23px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.form-group small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+input[type="file"],
+input[type="number"],
+select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: #fcfbff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+input[type="file"] {
+    padding: 9px;
+}
+
+input[type="file"]::file-selector-button {
+    border: none;
+    background: #eeeaff;
+    color: var(--primary-dark);
+    padding: 9px 14px;
+    border-radius: 8px;
+    margin-right: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(117, 101, 223, 0.12);
+}
+
+input[type="color"] {
+    width: 65px;
+    height: 45px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+}
+
+/* CAPTCHA */
+
+.captcha {
+    background: #f8f6ff;
+    border: 1px dashed #c9c0f2;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.captcha p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.captcha strong {
+    color: var(--primary-dark);
+    font-size: 18px;
+}
+
+/* Кнопка */
+
+.submit-button {
+    width: 100%;
+    min-height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(120deg, var(--primary), #9382e8);
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 7px 18px rgba(117, 101, 223, 0.22);
+}
+
+.submit-button:hover {
+    background: linear-gradient(120deg, var(--primary-dark), #8270dc);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(117, 101, 223, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* Сообщения */
+
+.message {
+    padding: 14px 17px;
+    border-radius: 11px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.error {
+    color: var(--danger);
+    background: #fff0f2;
+    border: 1px solid #f8d6dc;
+}
+
+.success {
+    color: var(--success);
+    background: #eaf8f2;
+    border: 1px solid #cceedd;
+}
+
+/* Изображения */
+
+.images-container,
+.histograms-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.image-card,
+.histogram-card {
+    background: #faf9fe;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    min-width: 0;
+}
+
+.image-card img {
+    display: block;
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    border-radius: 10px;
+    background:
+        linear-gradient(45deg, #eee 25%, transparent 25%),
+        linear-gradient(-45deg, #eee 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #eee 75%),
+        linear-gradient(-45deg, transparent 75%, #eee 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+.histogram-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+    background: white;
+}
+
+/* Информация */
+
+.image-info {
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 15px;
+    background: #f8f6ff;
+}
+
+.image-info p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 7px 0;
+}
+
+.image-info strong {
+    color: var(--text);
+}
+
+/* Подвал */
+
+.footer {
+    text-align: center;
+    padding: 25px 0 35px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer a {
+    display: inline-block;
+    margin-top: 7px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    color: var(--primary-dark);
+}
+
+/* Адаптация для телефонов */
+
+@media (max-width: 700px) {
+    .header {
+        padding: 40px 0 30px;
+    }
+
+    .upload-section,
+    .results-section,
+    .histograms-section {
+        padding: 22px 17px;
+        border-radius: 17px;
+    }
+
+    .images-container,
+    .histograms-container {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
